@@ -1,8 +1,12 @@
+import {nextui} from '@nextui-org/theme';
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
-  content: ["./src/**/*.tsx"],
+  content: [
+    "./src/**/*.tsx",
+    "./node_modules/@nextui-org/theme/dist/components/(badge|breadcrumbs|button|calendar|card|checkbox|chip|code|date-input|date-picker|divider|dropdown|input|kbd|link|menu|modal|navbar|pagination|popover|progress|radio|scroll-shadow|select|slider|spacer|spinner|toggle|table|tabs|user|ripple|listbox|avatar).js"
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -10,5 +14,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [nextui()],
 } satisfies Config;
