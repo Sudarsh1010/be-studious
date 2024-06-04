@@ -1,9 +1,9 @@
-import { communityTable } from "~/server/db/schema/community";
-import { createTRPCRouter, protectedProcedure } from "../trpc";
-import { memberTable } from "~/server/db/schema/member";
-import { userTable } from "~/server/db/schema/user";
 import { eq } from "drizzle-orm";
 import { createCommunitySchema } from "~/app/(app)/_validators/create-community";
+import { communityTable } from "~/server/db/schema/community";
+import { memberTable } from "~/server/db/schema/member";
+import { userTable } from "~/server/db/schema/user";
+import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const communitiesRouter = createTRPCRouter({
   all: protectedProcedure.query(async ({ ctx: { db, auth } }) => {

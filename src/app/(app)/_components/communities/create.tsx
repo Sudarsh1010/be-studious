@@ -12,11 +12,11 @@ import {
 } from "@nextui-org/modal";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useCallback } from "react";
 import { useForm } from "react-hook-form";
+import { api, getQueryClient } from "~/trpc/react";
 import { createCommunitySchema } from "../../_validators/create-community";
 import type { CreateCommunitySchemaType } from "../../_validators/create-community";
-import { useCallback } from "react";
-import { api, getQueryClient } from "~/trpc/react";
 
 export const CreateCommunity = () => {
   // query client

@@ -1,5 +1,7 @@
 "use client";
 
+import { UserButton } from "@clerk/nextjs";
+import { Input } from "@nextui-org/input";
 import {
   Navbar,
   NavbarBrand,
@@ -8,9 +10,7 @@ import {
   NavbarMenu,
   NavbarMenuToggle,
 } from "@nextui-org/navbar";
-import { Input } from "@nextui-org/input";
 import { Search } from "lucide-react";
-import { UserButton } from "@clerk/nextjs";
 import { SideNav } from "./side-nav";
 
 export const RCNavbar = () => {
