@@ -10,8 +10,11 @@ export const env = createEnv({
     DATABASE_URL: z.string().url(),
     // clerk
     CLERK_SECRET_KEY: z.string(),
+    // @ts-ignore
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string(),
+    // @ts-ignore
     NEXT_PUBLIC_CLERK_SIGN_IN_URL: z.string(),
+    // @ts-ignore
     NEXT_PUBLIC_CLERK_SIGN_UP_URL: z.string(),
     WEBHOOK_SECRET: z.string(),
 
@@ -38,6 +41,7 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     // clerk
     CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
+    // @ts-ignore
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:
       process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
     NEXT_PUBLIC_CLERK_SIGN_IN_URL: process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL,
