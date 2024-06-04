@@ -27,11 +27,11 @@ import { db } from "~/server/db";
  * @see https://trpc.io/docs/server/context
  */
 export const createTRPCContext = async (opts: NextRequest) => {
-	return {
-		db,
-		auth: getAuth(opts),
-		...opts,
-	};
+  return {
+    db,
+    auth: getAuth(opts),
+    ...opts,
+  };
 };
 
 /**
@@ -42,19 +42,17 @@ export const createTRPCContext = async (opts: NextRequest) => {
  * errors on the backend.
  */
 const t = initTRPC.context<typeof createTRPCContext>().create({
-	transformer: superjson,
-	errorFormatter({ shape, error }) {
-		return {
-			...shape,
-			data: {
-				...shape.data,
-				zodError:
-					error.cause instanceof ZodError
-						? error.cause.flatten()
-						: null,
-			},
-		};
-	},
+  transformer: superjson,
+  errorFormatter({ shape, error }) {
+    return {
+      ...shape,
+      data: {
+        ...shape.data,
+        zodError:
+          error.cause instanceof ZodError ? error.cause.flatten() : null,
+      },
+    };
+  },
 });
 
 /**
@@ -88,12 +86,12 @@ export const createTRPCRouter = t.router;
 export const publicProcedure = t.procedure;
 
 const enforceUserIsAuthed = t.middleware(async ({ ctx, next }) => {
-	if (!ctx.auth.userId) {
-		throw new TRPCError({
-			code: "UNAUTHORIZED",
-		});
-	}
-	return next({ ctx });
+  if (!ctx.auth.userId) {
+    throw new TRPCError({
+      code: "UNAUTHORIZED",
+    });
+  }
+  return next({ ctx });
 });
 
 export const protectedProcedure = t.procedure.use(enforceUserIsAuthed);

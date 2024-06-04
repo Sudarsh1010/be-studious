@@ -1,11 +1,5 @@
-import { SignedIn, UserButton } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
-	return (
-		<main>
-			<SignedIn>
-				<UserButton />
-			</SignedIn>
-		</main>
-	);
+  redirect("/app");
 }
