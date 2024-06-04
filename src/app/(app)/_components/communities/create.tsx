@@ -17,10 +17,14 @@ import { useForm } from "react-hook-form";
 import { api, getQueryClient } from "~/trpc/react";
 import { createCommunitySchema } from "../../_validators/create-community";
 import type { CreateCommunitySchemaType } from "../../_validators/create-community";
+import { useRouter } from "next/navigation";
 
 export const CreateCommunity = () => {
   // query client
   const queryClient = getQueryClient();
+
+  // router
+  const router = useRouter();
 
   // modal state
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
@@ -43,6 +47,7 @@ export const CreateCommunity = () => {
       }
 
       onClose();
+      router.refresh();
     },
   });
 
